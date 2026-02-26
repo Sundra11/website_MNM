@@ -1,7 +1,7 @@
-import Img1 from "../../Assets/ProgramPics/images.jpeg";
-import Img2 from "../../Assets/ProgramPics/2.jpeg";
-import Img3 from "../../Assets/ProgramPics/3.jpeg";
-import Img4 from "../../Assets/ProgramPics/4.jpg";
+import Img1 from "../../assets/ProgramPics/images.jpeg";
+import Img2 from "../../assets/ProgramPics/2.jpeg";
+import Img3 from "../../assets/ProgramPics/3.jpeg";
+import Img4 from "../../assets/ProgramPics/4.jpg";
 import HoverGalleryCard from "../../Animations/HoverGalleryCard";
 
 const UpcomingEvents = () => {
@@ -37,9 +37,9 @@ const UpcomingEvents = () => {
       <div className="container mx-auto px-4">
         {/* TITLE stays exactly like your style */}
         <h2 className="flex items-center text-2xl font-bold text-center my-8">
-          <span className="flex-grow border-t border-orange-500"></span>
+          <span className="grow border-t border-orange-500"></span>
           <span className="px-4 font-bold">Stay Updated With Our Events</span>
-          <span className="flex-grow border-t border-orange-500"></span>
+          <span className="grow border-t border-orange-500"></span>
         </h2>
 
         {/* NEW GRID LAYOUT */}
