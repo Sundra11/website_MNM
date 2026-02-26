@@ -1,6 +1,6 @@
-import Img1 from "../../assets/ProgramPics/images.jpeg";
-import Img2 from "../../assets/ProgramPics/2.jpeg";
-import Img3 from "../../assets/ProgramPics/3.jpeg";
+import Img1 from "../../assets/ProgramPics/images.jpg";
+import Img2 from "../../assets/ProgramPics/2.jpg";
+import Img3 from "../../assets/ProgramPics/3.jpg";
 import Img4 from "../../assets/ProgramPics/4.jpg";
 import HoverGalleryCard from "../../Animations/HoverGalleryCard";
 
