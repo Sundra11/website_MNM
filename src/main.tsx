@@ -2,14 +2,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import NotFound from "./components/pages/NotFound.tsx";
+import NotFound from "./components/pages/NotFound";
 import { Provider } from "react-redux";
 import { store } from "./store.ts";
-import HomePage from "./components/pages/HomePage.tsx";
-import Navbar from "./components/pages/Navbar.tsx";
-import Login from "./components/pages/Login.tsx";
-import ProtectedRoute from "./components/ProtectedRoute.tsx";
-import Dashboard from "./components/pages/Dashboard.tsx";
+import HomePage from "./components/pages/HomePage";
+import Navbar from "./components/pages/Navbar";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Dashboard from "./components/pages/Dashboard";
+import Login from "./components/pages/Login";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
