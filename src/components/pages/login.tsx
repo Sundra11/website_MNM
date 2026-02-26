@@ -1,7 +1,7 @@
 import MainImage from "../../assets/Bg-hero.jpg";
 import { LoginForm } from "../login-form";
 
-function Login() {
+const Login = () => {
   return (
     <div className="flex flex-1 w-full min-h-screen">
       <div className="relative w-full">
@@ -13,6 +13,6 @@ function Login() {
       </div>
     </div>
   );
-}
+};
 
 export default Login;

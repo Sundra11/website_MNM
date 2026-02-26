@@ -9,7 +9,7 @@ import HomePage from "./components/pages/HomePage";
 import Navbar from "./components/pages/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./components/pages/Dashboard";
-import Login from "./components/pages/Login";
+import Login from "./components/pages/login.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
