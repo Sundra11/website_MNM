@@ -1,9 +1,9 @@
 import { useRef, useEffect, useState } from "react";
 
-import Img1 from "../../Assets/ProgramPics/images.jpeg";
-import Img2 from "../../Assets/ProgramPics/2.jpeg";
-import Img3 from "../../Assets/ProgramPics/3.jpeg";
-import Img4 from "../../Assets/ProgramPics/4.jpg";
+import Img1 from "../../assets/ProgramPics/images.jpg";
+import Img2 from "../../assets/ProgramPics/2.jpg";
+import Img3 from "../../assets/ProgramPics/3.jpg";
+import Img4 from "../../assets/ProgramPics/4.jpg";
 import { motion } from "framer-motion";
 
 function Programs() {
