@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, useInView, useMotionValue, animate } from "framer-motion";
 import { GraduationCap, PartyPopper, UsersRound } from "lucide-react";
 
 const stats = [
@@ -23,28 +23,30 @@ const stats = [
   },
 ];
 
-const AnimatedNumber = ({ value, isVisible }) => {
-  const controls = useAnimation();
+type AnimatedNumberProps = {
+  value: number;
+  isVisible: boolean;
+};
+
+const AnimatedNumber = ({ value, isVisible }: AnimatedNumberProps) => {
+  const motionValue = useMotionValue(0);
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {
-    if (isVisible) {
-      controls.start({
-        val: value,
-        transition: { duration: 2, ease: "easeOut" },
-      });
-    }
-  }, [isVisible]);
+    if (!isVisible) return;
 
-  return (
-    <motion.span
-      animate={controls}
-      initial={{ val: 0 }}
-      onUpdate={(latest) => setDisplay(latest.val?.toFixed(0))}
-    >
-      {display}+
-    </motion.span>
-  );
+    const controls = animate(motionValue, value, {
+      duration: 2,
+      ease: "easeOut",
+      onUpdate: (latest) => {
+        setDisplay(Math.round(latest));
+      },
+    });
+
+    return () => controls.stop();
+  }, [isVisible, value, motionValue]);
+
+  return <span>{display}+</span>;
 };
 
 export default function Impact() {

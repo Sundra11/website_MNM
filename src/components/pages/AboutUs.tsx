@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import Img1 from "../../assets/img-1.jpg";
 import { useEffect, useState } from "react";

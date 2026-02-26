@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 
 import Img1 from "../../Assets/ProgramPics/images.jpeg";
 import Img2 from "../../Assets/ProgramPics/2.jpeg";
@@ -82,9 +82,9 @@ function Programs() {
       <section className="bg-gray-50 py-12">
         <div className="container mx-auto px-4">
           <h2 className="flex items-center text-2xl font-bold text-center my-8">
-            <span className="flex-grow border-t border-orange-500"></span>
+            <span className="grow border-t border-orange-500"></span>
             <span className="px-4 font-bold">Our Programs</span>
-            <span className="flex-grow border-t border-orange-500"></span>
+            <span className="grow border-t border-orange-500"></span>
           </h2>
 
           <div className="relative">

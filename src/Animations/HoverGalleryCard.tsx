@@ -1,6 +1,10 @@
-import React from "react";
 
-export default function HoverGalleryCard({ image, title }) {
+type HoverGalleryCardProps = {
+  image: string;
+  title: string;
+};
+
+export default function HoverGalleryCard({ image, title }: HoverGalleryCardProps) {
   return (
     <div className="relative group rounded-xl overflow-hidden shadow-md cursor-pointer">
       {/* IMAGE */}
@@ -14,7 +18,7 @@ export default function HoverGalleryCard({ image, title }) {
       {/* DARK OVERLAY (DEFAULT) */}
       <div
         className="absolute inset-0 bg-gray/40 
-        group-hover:bg-gradient-to-t group-hover:from-orange-600 group-hover:via-orange-500/50 group-hover:to-transparent 
+        group-hover:bg-linear-t group-hover:from-orange-600 group-hover:via-orange-500/50 group-hover:to-transparent 
         transition-all duration-500"
       ></div>
 
