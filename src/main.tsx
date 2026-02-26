@@ -10,11 +10,13 @@ import Navbar from "./components/pages/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./components/pages/Dashboard";
 import Login from "./components/pages/login.tsx";
+import { Toaster } from "sonner";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
       <Router>
+        <Toaster />
         <Routes>
           <Route
             path="/"

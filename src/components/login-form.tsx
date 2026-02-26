@@ -7,15 +7,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Field,
-  FieldGroup,
-  FieldLabel,
-} from "@/components/ui/field";
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/lib/supabase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 export function LoginForm({
   className,
@@ -24,7 +21,6 @@ export function LoginForm({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -35,7 +31,7 @@ export function LoginForm({
     });
 
     if (error) {
-      setErrorMsg(error.message);
+      toast.error("Login failed: " + error.message);
       setLoading(false);
       return;
     }
@@ -54,11 +50,6 @@ export function LoginForm({
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit}>
-            {errorMsg && (
-              <div className="bg-red-100 text-red-600 p-2 rounded mb-4 text-sm">
-                {errorMsg}
-              </div>
-            )}
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="email">Email</FieldLabel>
