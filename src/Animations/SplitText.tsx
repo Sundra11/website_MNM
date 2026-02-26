@@ -1,59 +1,75 @@
-import { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplitText as GSAPSplitText } from 'gsap/SplitText';
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText as GSAPSplitText } from "gsap/SplitText";
+import type { ScrollTrigger as ScrollTriggerType } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger, GSAPSplitText);
 
-const SplitText = ({
+type SplitTextProps = {
+  text: string;
+  className?: string;
+  delay?: number;
+  duration?: number;
+  ease?: string;
+  splitType?: string;
+  from?: { opacity: number; y: number };
+  to?: { opacity: number; y: number };
+  threshold?: number;
+  rootMargin?: string;
+  textAlign?: React.CSSProperties["textAlign"];
+  onLetterAnimationComplete?: () => void;
+};
+
+const SplitText: React.FC<SplitTextProps> = ({
   text,
-  className = '',
+  className = "",
   delay = 100,
   duration = 0.6,
-  ease = 'power3.out',
-  splitType = 'chars',
+  ease = "power3.out",
+  splitType = "chars",
   from = { opacity: 0, y: 40 },
   to = { opacity: 1, y: 0 },
   threshold = 0.1,
-  rootMargin = '-100px',
-  textAlign = 'center',
+  rootMargin = "-100px",
+  textAlign = "center",
   onLetterAnimationComplete,
 }) => {
-  const ref = useRef(null);
-  const animationCompletedRef = useRef(false);
-  const scrollTriggerRef = useRef(null);
+  const ref = useRef<HTMLParagraphElement | null>(null);
+  const animationCompletedRef = useRef<boolean>(false);
+  const scrollTriggerRef = useRef<ScrollTriggerType | null>(null);
 
   useEffect(() => {
-    if (typeof window === 'undefined' || !ref.current || !text) return;
+    if (typeof window === "undefined" || !ref.current || !text) return;
 
     const el = ref.current;
 
     animationCompletedRef.current = false;
 
-    const absoluteLines = splitType === 'lines';
-    if (absoluteLines) el.style.position = 'relative';
+    const absoluteLines = splitType === "lines";
+    if (absoluteLines) el.style.position = "relative";
 
     let splitter;
     try {
       splitter = new GSAPSplitText(el, {
         type: splitType,
         absolute: absoluteLines,
-        linesClass: 'split-line',
+        linesClass: "split-line",
       });
     } catch (error) {
-      console.error('Failed to create SplitText:', error);
+      console.error("Failed to create SplitText:", error);
       return;
     }
 
     let targets;
     switch (splitType) {
-      case 'lines':
+      case "lines":
         targets = splitter.lines;
         break;
-      case 'words':
+      case "words":
         targets = splitter.words;
         break;
-      case 'chars':
+      case "chars":
         targets = splitter.chars;
         break;
       default:
@@ -61,19 +77,19 @@ const SplitText = ({
     }
 
     if (!targets || targets.length === 0) {
-      console.warn('No targets found for SplitText animation');
+      console.warn("No targets found for SplitText animation");
       splitter.revert();
       return;
     }
 
     targets.forEach((t) => {
-      t.style.willChange = 'transform, opacity';
+      (t as HTMLElement).style.willChange = "transform, opacity";
     });
 
     const startPct = (1 - threshold) * 100;
     const marginMatch = /^(-?\d+(?:\.\d+)?)(px|em|rem|%)?$/.exec(rootMargin);
     const marginValue = marginMatch ? parseFloat(marginMatch[1]) : 0;
-    const marginUnit = marginMatch ? marginMatch[2] || 'px' : 'px';
+    const marginUnit = marginMatch ? marginMatch[2] || "px" : "px";
     const sign =
       marginValue < 0
         ? `-=${Math.abs(marginValue)}${marginUnit}`
@@ -84,7 +100,7 @@ const SplitText = ({
       scrollTrigger: {
         trigger: el,
         start,
-        toggleActions: 'play none none none',
+        toggleActions: "play none none none",
         once: true,
         onToggle: (self) => {
           scrollTriggerRef.current = self;
@@ -95,7 +111,7 @@ const SplitText = ({
         animationCompletedRef.current = true;
         gsap.set(targets, {
           ...to,
-          clearProps: 'willChange',
+          clearProps: "willChange",
           immediateRender: true,
         });
         onLetterAnimationComplete?.();
@@ -141,7 +157,7 @@ const SplitText = ({
       className={`split-parent overflow-hidden inline-block whitespace-normal ${className}`}
       style={{
         textAlign,
-        wordWrap: 'break-word',
+        wordWrap: "break-word",
       }}
     >
       {text}

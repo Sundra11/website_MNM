@@ -1,7 +1,19 @@
 // src/Animations/ScrollFadeIn.js
 import { motion } from "framer-motion";
 
-const ScrollFadeIn = ({ children, delay = 0, duration = 0.6, y = 50 }) => {
+type Props = {
+  children: React.ReactNode;
+  delay?: number;
+  duration?: number;
+  y?: number;
+};
+
+const ScrollFadeIn: React.FC<Props> = ({
+  children,
+  delay = 0,
+  duration = 0.6,
+  y = 50,
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0, y }}

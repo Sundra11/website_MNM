@@ -29,7 +29,7 @@ function Programs() {
     { id: 6, title: "Palan Tharum Pathigam", image: Img4 },
   ];
 
-  const scrollRef = useRef(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const cardWidth = 280; // width of each card including gap
 

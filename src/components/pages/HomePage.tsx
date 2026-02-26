@@ -1,14 +1,13 @@
-import React from "react";
 import { motion } from "framer-motion";
 import Hero from "../../assets/Bg-hero.jpg";
 import TextType from "@/Animations/TextType";
 import Vision from "./Vision";
-import FadeContent from "../../components/FadeContent";
 import AboutUs from "./AboutUs";
 import Programs from "./Programs";
 import UpcomingEvents from "./UpcomingEvents";
 import Impact from "./Impact";
 import FooterCTA from "./Footer";
+import ScrollFadeIn from "@/Animations/ScrollFadeIn";
 
 
 function HomePage() {
@@ -56,39 +55,39 @@ function HomePage() {
               </div>
             </section>
           </section>
-          <FadeContent>
+          <ScrollFadeIn>
             <section>
               <Vision />
             </section>
-          </FadeContent>
+          </ScrollFadeIn>
 
           <section>
             <AboutUs />
           </section>
 
-          <FadeContent>
+          <ScrollFadeIn>
             <section>
               <Programs />
             </section>
-          </FadeContent>
+          </ScrollFadeIn>
 
-          <FadeContent>
+          <ScrollFadeIn>
             <section>
               <UpcomingEvents />
             </section>
-          </FadeContent>
+          </ScrollFadeIn>
 
-          <FadeContent>
+          <ScrollFadeIn>
             <section>
               <Impact />
             </section>
-          </FadeContent>
+          </ScrollFadeIn>
 
-          <FadeContent>
+          <ScrollFadeIn>
             <section>
               <FooterCTA />
             </section>
-          </FadeContent>
+          </ScrollFadeIn>
         </main>
       </motion.div>
     </>
