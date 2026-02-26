@@ -30,7 +30,6 @@ function Programs() {
   ];
 
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
   const cardWidth = 280; // width of each card including gap
 
   // Manual scroll with arrows
@@ -50,7 +49,6 @@ function Programs() {
   const handleScroll = () => {
     if (!scrollRef.current) return;
     const index = Math.round(scrollRef.current.scrollLeft / cardWidth);
-    setActiveIndex(index);
   };
 
   // Auto-scroll
@@ -102,10 +100,10 @@ function Programs() {
               onScroll={handleScroll}
               className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth p-10"
             >
-              {ProgramArray.map((program, index) => (
+              {ProgramArray.map((program) => (
                 <div
                   key={program.id}
-                  className="min-w-[260px] bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden group relative"
+                  className="min-w-65 bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden group relative"
                 >
                   {/* IMAGE WITH ZOOM + GRADIENT */}
                   <div className="relative h-48 w-full overflow-hidden">
@@ -116,7 +114,7 @@ function Programs() {
                     />
 
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"></div>
                   </div>
 
                   <div className="p-5">

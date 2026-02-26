@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Logo from "../../assets/mnm-logo-HQ.png";
 import { Menu, X } from "lucide-react";
 import "@fontsource/montserrat/400.css";

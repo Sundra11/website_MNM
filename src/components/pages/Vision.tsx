@@ -1,4 +1,3 @@
-import React from 'react';
 import '@fontsource/montserrat/400.css';
 import SplitText from '@/Animations/SplitText';
 
