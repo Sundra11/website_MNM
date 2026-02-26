@@ -3,8 +3,11 @@ import Logo from "../../assets/mnm-logo-HQ.png";
 import { Menu, X } from "lucide-react";
 import "@fontsource/montserrat/400.css";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router";
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const NavItems = [
@@ -26,6 +29,10 @@ const Navbar = () => {
     { label: "Contact", href: "#contact" },
   ];
 
+  const handleAdmin = () => {
+    navigate("/admin/login");
+  }
+
   // const NavbarLinks = ['Home', 'Profile', 'Our Team', 'News Update', 'Contact'];
   return (
     <nav className="w-full bg-white shadow-sm font-montserrat sticky">
@@ -43,12 +50,12 @@ const Navbar = () => {
             return (
               <a key={item.label} href={item.href} className="relative group cursor-pointer">
                 {item.label}
-                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
               </a>
             );
           })}
 
-          <button className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition cursor-pointer">
+          <button onClick={handleAdmin} className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition cursor-pointer">
             Support Us
           </button>
         </div>
