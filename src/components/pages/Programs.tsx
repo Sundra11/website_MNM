@@ -48,7 +48,7 @@ function Programs() {
   // Detect active index based on scroll position
   const handleScroll = () => {
     if (!scrollRef.current) return;
-    const index = Math.round(scrollRef.current.scrollLeft / cardWidth);
+    // const index = Math.round(scrollRef.current.scrollLeft / cardWidth);
   };
 
   // Auto-scroll
